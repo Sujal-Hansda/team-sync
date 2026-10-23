@@ -28,6 +28,7 @@ export let useEmployee = ()=>
     }),
     staleTime:10000,
     keepPreviousData:true,
+    placeholderData:(prev)=> prev,
   })
   const handlePageChange = (newPage)=>
   {
