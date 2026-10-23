@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Eye, Mail, MoreVertical } from "lucide-react";
 import StatusBadge from "./StatusBadge";
 import EmployeeActions from "./EmployeeActions";
+import { updateEmployee } from "../../../api/employeeApi";
+
 
 const EmployeeRow = ({ employee, onView, onMore }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -16,10 +18,10 @@ const EmployeeRow = ({ employee, onView, onMore }) => {
     .map((word) => word[0].toUpperCase())
     .join("");
 
-  const handleAction = (actionEmployee, action) => {
-    onMore?.({ employee: actionEmployee, action });
-    setShowMenu(false);
-  };
+  // const handleAction = (actionEmployee, action) => {
+  //   onMore?.({ employee: actionEmployee, action });
+  //   setShowMenu(false);
+  // };
 
   return (
     <tr className="border-b border-slate-100 transition hover:bg-slate-50/80">
@@ -101,12 +103,20 @@ const EmployeeRow = ({ employee, onView, onMore }) => {
 
             {showMenu && (
               <div className="absolute right-0 top-full z-20 mt-2">
-                <EmployeeActions
-                  employee={employee}
-                  onUpdate={(emp) => handleAction(emp, "update")}
-                  onInactive={(emp) => handleAction(emp, "inactive")}
-                  onDelete={(emp) => handleAction(emp, "delete")}
-                />
+<EmployeeActions
+          setShowMenu={setShowMenu}
+          employee={employee}
+          onEdit={() => console.log("Edit", employee)}
+          onDelete={() => console.log("Delete", employee)}
+          onInactive={async () => {
+            if (
+              employee.status === "inactive"
+                ? await updateEmployee(employee?._id, { status: "active" })
+                : await updateEmployee(employee?._id, { status: "inactive" })
+            )
+              alert("employee status updated");
+          }}
+        />
               </div>
             )}
           </div>

@@ -17,15 +17,29 @@ export let getAllEmployee =  async({
        
   }
 }
-// getAllEmployee();
 
 export let createEmployee = async(data)=>
-{
-  try {
-    let res = await axiosInstance.post('/employee/create',data)
-    console.log("Create Employee Response->",res);
-    return res.data.data;
-  } catch (error) {
-    console.log("Error in create Employee API",error);
+  {
+    try {
+      let res = await axiosInstance.post('/employee/create',data)
+      console.log("Create Employee Response->",res);
+      return res.data.data;
+    } catch (error) {
+      console.log("Error in create Employee API",error);
+    }
+  } 
+
+  export let updateEmployee = async(empId,data)=>
+  {
+    try {
+      let res = await axiosInstance.patch(`/employee/update/${empId}`,data)
+      console.log(res);
+      
+    }
+     catch (error) {
+      console.log("Error in updating employee",error);
+      
+    }
   }
-} 
+  
+  getAllEmployee();

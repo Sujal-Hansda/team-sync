@@ -4,6 +4,7 @@ import React from "react";
 const FormInput = ({
   label,
   name,
+  register,
   type = "text",
   value,
   onChange,
@@ -62,6 +63,7 @@ const FormInput = ({
           placeholder={placeholder}
           required={required}
           className={inputClass}
+          {...register(name,{required})}
         />
       )}
     </div>
