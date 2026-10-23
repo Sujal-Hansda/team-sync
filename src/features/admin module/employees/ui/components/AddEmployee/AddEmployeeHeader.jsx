@@ -7,7 +7,7 @@ const AddEmployeeHeader = () => {
         Team <span className="mx-1">›</span> Add New Employee
       </p>
 
-      <h1 className="text-2xl font-bold text-slate-900">
+      <h1 className="text-3xl font-bold text-[var(--text-primary)]">
         Add Employee
       </h1>
 

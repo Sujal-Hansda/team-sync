@@ -9,7 +9,7 @@ const EmployeeHeader = () => {
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">
+        <h1 className="text-3xl font-bold text-[var(--text-primary)]">
           Employees
         </h1>
         <p className="mt-1 text-sm text-slate-500">

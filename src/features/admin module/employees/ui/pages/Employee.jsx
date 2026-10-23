@@ -15,7 +15,7 @@ console.log(data);
   if (isPending) return <h1>Loading...</h1>;
 
   return (
-    <div className="min-h-screen bg-slate-50 p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-[var(--bg-main)] text-[var(--text-primary)] p-4 sm:p-6 lg:p-8">
       <div className="mx-auto max-w-7xl space-y-6">
         <Outlet/>
         <EmployeeHeader />
