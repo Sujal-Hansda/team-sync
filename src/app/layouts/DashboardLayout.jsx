@@ -22,9 +22,11 @@ const DashboardLayout = () => {
 
     <div className='h-screen grid grid-cols-[1fr_7fr]'>
     <div className='border-r border-gray-500 px-6 py-4'><AsideNav/></div>  
-    <div className='flex flex-col gap-5 px-6 py-4'>
-      <TopNav/>
-      <Outlet/>
+    <div className='flex flex-col gap-5 px-6 py-4 overflow-auto'>
+      <TopNav />
+      <div className='h-full overflow-auto'>
+        <Outlet/>
+      </div>
     </div>
     </div>
   )

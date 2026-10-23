@@ -1,13 +1,16 @@
 import React from 'react'
-import { NavLink } from 'react-router'
 import NavigationTab from './NavigationTab'
-import { ChartArea, Key } from 'lucide-react'
 import { useSelector } from 'react-redux'
-import { adminNavigation, employeeNavigation } from '../../../../app/constants/Navigations'
-
+import { adminNavigation } from '../../../../app/constants/navigations/adminNavigation'
+import { employeeNavigation } from '../../../../app/constants/navigations/employeeNavigation'
 const AsideNav = () => {
 let {employee}=useSelector((store)=>store.auth)
-  let navigations =employee.role === 'admin'?adminNavigation:employeeNavigation
+  let navigations = 
+  employee?.role === "admin"
+  ?adminNavigation:employeeNavigation
+  console.log("Employee:", employee);
+  console.log("Role:", employee?.role);
+  console.log("Navigation:", navigations);
   return (
     <div>
       <div className='flex flex-col gap-1'>
