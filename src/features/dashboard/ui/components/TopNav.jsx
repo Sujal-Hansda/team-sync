@@ -2,7 +2,8 @@ import { Bell, Lightbulb, Menu, Moon, Search } from 'lucide-react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleTheme } from '../../../../shared/state/themeSlice';
-
+import { logoutApi } from '../../../auth/apis/authApi';
+import { removeEmployee } from '../../../auth/state/auth/authSlice';
 
 
 const TopNav = () => {
@@ -17,6 +18,11 @@ const TopNav = () => {
     dispatch(toggleTheme());
   }
 
+  let handleLogout = async()=>
+  {
+    await logoutApi();
+    dispatch(removeEmployee());
+  }
 
 
   return (
@@ -34,6 +40,7 @@ const TopNav = () => {
         
         <Bell size={24}/>
         <Menu size={24}/>
+        <button onClick={handleLogout} className='bg-black px-5 py-2 font-semibold cursor-pointer  rounded'>Log out</button>
       </div>
     </div>
   )

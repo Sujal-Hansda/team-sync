@@ -9,7 +9,13 @@ import Pagination from '../components/employees/Pagination';
 import { Outlet } from 'react-router';
 
 const Employee = () => {
-  let { data, isPending ,handlePageChange,isFetching,filters,handleSearchFilter} = useEmployee();
+  let { data, 
+    isPending ,
+    handlePageChange,
+    isFetching,
+    filters,
+    handleSearchFilter
+  } = useEmployee();
 console.log(data);
 
   if (isPending) return <h1>Loading...</h1>;
